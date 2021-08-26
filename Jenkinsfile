@@ -5,7 +5,7 @@ node ('ubuntu-app-agent'){
        checkout scm
     }  
     stage('SAST'){
-        build 'SECURITY-SAST-SNYK'
+        build 'snyk-sast-security'
     }
 
     
@@ -21,7 +21,7 @@ node ('ubuntu-app-agent'){
         			}
          }
     stage('SECURITY-IMAGE-SCANNER'){
-        build 'SECURITY-IMAGE-SCANNER-AQUAMICROSCANNER'
+        build 'anchore-dast-security'
     }
   
     
@@ -33,7 +33,7 @@ node ('ubuntu-app-agent'){
     
     stage('DAST')
         {
-        build 'SECURITY-DAST-OWASP_ZAP'
+        build 'arachni-dast-security'
         }
  
 }
